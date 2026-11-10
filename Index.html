@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Finn Böttcher | Bewerbung</title>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+      :root {
+        --bg-dark: #071a22;
+        --bg-deep: #0d2230;
+        --glass: rgba(255, 255, 255, 0.08);
+        --glass-strong: rgba(255, 255, 255, 0.14);
+        --border: rgba(255, 255, 255, 0.14);
+        --text: #eef6fb;
+        --muted: #b6c7d3;
+        --accent: #7fe6d4;
+        --accent-2: #9dc8ff;
+        --shadow: rgba(5, 19, 28, 0.34);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        font-family: 'Inter', sans-serif;
+        background:
+          radial-gradient(circle at top left, rgba(127, 230, 212, 0.18), transparent 33%),
+          radial-gradient(circle at bottom right, rgba(157, 200, 255, 0.18), transparent 35%),
+          linear-gradient(135deg, #071a22 0%, #0f2431 100%);
+        color: var(--text);
+        min-height: 100vh;
+      }
+
+      .page {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 28px 24px 60px;
+      }
+
+      .topbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 16px 0 22px;
+      }
+
+      .brand {
+        font-size: 1.1rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        opacity: 0.95;
+      }
+
+      .nav {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+      }
+
+      .nav a {
+        color: var(--muted);
+        text-decoration: none;
+        font-size: 0.95rem;
+        transition: 0.2s ease;
+      }
+
+      .nav a:hover {
+        color: var(--text);
+      }
+
+      .nav .btn {
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid var(--border);
+        padding: 10px 18px;
+        border-radius: 999px;
+        color: var(--text);
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 30px;
+        align-items: center;
+        min-height: 78vh;
+        padding-top: 25px;
+      }
+
+      .hero-copy {
+        padding: 30px 0;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 0.8rem;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--accent);
+        background: rgba(127, 230, 212, 0.06);
+        border: 1px solid rgba(127, 230, 212, 0.15);
+        padding: 9px 14px;
+        border-radius: 999px;
+      }
+
+      .eyebrow::before {
+        content: "";
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--accent);
+        box-shadow: 0 0 18px rgba(127, 230, 212, 0.8);
+      }
+
+      h1 {
+        font-size: clamp(2.8rem, 5vw, 5rem);
+        line-height: 0.96;
+        letter-spacing: -0.06em;
+        margin: 26px 0 18px;
+      }
+
+      .hero-copy p {
+        color: var(--muted);
+        font-size: 1.08rem;
+        line-height: 1.7;
+        max-width: 620px;
+        margin-bottom: 28px;
+      }
+
+      .cta-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        margin-top: 18px;
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        padding: 15px 22px;
+        border-radius: 14px;
+        font-weight: 600;
+        transition: 0.2s ease;
+        border: 1px solid transparent;
+      }
+
+      .button.primary {
+        background: linear-gradient(135deg, var(--accent), var(--accent-2));
+        color: #06222a;
+        box-shadow: 0 18px 35px rgba(127, 230, 212, 0.2);
+      }
+
+      .button.secondary {
+        background: rgba(255, 255, 255, 0.04);
+        border-color: var(--border);
+        color: var(--text);
+      }
+
+      .button:hover {
+        transform: translateY(-1px);
+      }
+
+      .card-wrap {
+        display: flex;
+        justify-content: center;
+      }
+
+      .business-card {
+        width: min(100%, 430px);
+        border-radius: 28px;
+        background: rgba(255, 255, 255, 0.07);
+        border: 1px solid var(--border);
+        box-shadow: 0 28px 60px var(--shadow);
+        backdrop-filter: blur(18px);
+        -webkit-backdrop-filter: blur(18px);
+        overflow: hidden;
+      }
+
+      .card-top {
+        padding: 26px 26px 18px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .mini-tag {
+        font-size: 0.74rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--accent);
+      }
+
+      .status-dot {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: var(--muted);
+        font-size: 0.8rem;
+      }
+
+      .status-dot span {
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        background: #65ec9c;
+        box-shadow: 0 0 12px rgba(101, 236, 156, 0.8);
+      }
+
+      .card-main {
+        padding: 0 26px 22px;
+      }
+
+      .profile-row {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        margin-bottom: 18px;
+      }
+
+      .avatar {
+        width: 82px;
+        height: 82px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, rgba(127, 230, 212, 0.25), rgba(157, 200, 255, 0.22));
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--text);
+        font-size: 2rem;
+        font-weight: 700;
+        overflow: hidden;
+      }
+
+      .avatar img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .name-block h2 {
+        margin: 0;
+        font-size: clamp(1.6rem, 2vw, 2.2rem);
+        letter-spacing: -0.05em;
+      }
+
+      .name-block p {
+        margin: 6px 0 0;
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+
+      .info-list {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 10px;
+      }
+
+      .info-list li {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 11px 0;
+        color: var(--text);
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .icon {
+        width: 32px;
+        height: 32px;
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.09);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.9rem;
+        color: var(--accent);
+      }
+
+      .details {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+      }
+
+      .label {
+        color: var(--muted);
+        font-size: 0.68rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .value {
+        font-size: 0.96rem;
+        color: var(--text);
+      }
+
+      .card-footer {
+        padding: 18px 26px 26px;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        background: rgba(255, 255, 255, 0.02);
+      }
+
+      .document-box {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.09);
+        border-radius: 14px;
+        padding: 14px 16px;
+      }
+
+      .document-box span {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: var(--muted);
+      }
+
+      .document-box .doc-pill {
+        padding: 8px 12px;
+        border-radius: 999px;
+        background: rgba(127, 230, 212, 0.08);
+        color: var(--accent);
+        border: 1px solid rgba(127, 230, 212, 0.12);
+        font-size: 0.75rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .section {
+        margin-top: 90px;
+      }
+
+      .section-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 22px;
+      }
+
+      .section-header h3 {
+        font-size: clamp(1.7rem, 3vw, 2.5rem);
+        letter-spacing: -0.05em;
+        margin: 0;
+      }
+
+      .section-header span {
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      .feature-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 22px;
+      }
+
+      .feature {
+        padding: 24px 22px;
+        border-radius: 22px;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.09);
+        box-shadow: 0 18px 35px rgba(0, 0, 0, 0.12);
+      }
+
+      .feature .num {
+        font-size: 0.8rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--accent);
+      }
+
+      .feature h4 {
+        margin: 16px 0 10px;
+        font-size: 1.3rem;
+      }
+
+      .feature p {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.7;
+      }
+
+      @media (max-width: 920px) {
+        .hero {
+          grid-template-columns: 1fr;
+          gap: 18px;
+          min-height: auto;
+          padding-top: 10px;
+        }
+
+        .hero-copy {
+          order: 1;
+        }
+
+        .card-wrap {
+          order: 2;
+        }
+
+        .feature-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .page {
+          padding-left: 16px;
+          padding-right: 16px;
+        }
+
+        .topbar {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 12px;
+        }
+
+        .nav {
+          gap: 12px;
+          flex-wrap: wrap;
+        }
+
+        .button {
+          width: 100%;
+        }
+
+        .cta-row {
+          flex-direction: column;
+        }
+
+        .profile-row {
+          align-items: flex-start;
+        }
+
+        .card-top,
+        .card-main,
+        .card-footer {
+          padding-left: 18px;
+          padding-right: 18px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <header class="topbar">
+        <div class="brand">Finn Böttcher</div>
+        <nav class="nav">
+          <a href="#startseite">Startseite</a>
+          <a href="#profil">Profil</a>
+          <a href="#dokumente">Dokumente</a>
+          <a class="btn" href="#kontakt">Kontakt</a>
+        </nav>
+      </header>
+
+      <main>
+        <section class="hero" id="startseite">
+          <div class="hero-copy">
+            <div class="eyebrow">Willkommen</div>
+            <h1>Ich baue moderne Lösungen mit klarer Perspektive.</h1>
+            <p>
+              Ich suche eine verantwortungsvolle Position, in der ich meine
+              Fähigkeiten, mein analytisches Denken und meine Motivation
+              einbringen kann. Meine fachliche Ausrichtung, mein Engagement und
+              meine Lernbereitschaft machen mich zu einem wertvollen Teammitglied.
+            </p>
+
+            <div class="cta-row">
+              <a class="button primary" href="#profil">Mehr erfahren</a>
+              <a class="button secondary" href="#kontakt">Kontakt aufnehmen</a>
+            </div>
+          </div>
+
+          <div class="card-wrap">
+            <div class="business-card" id="profil">
+              <div class="card-top">
+                <div class="mini-tag">Bewerbung</div>
+                <div class="status-dot"><span></span> verfügbar</div>
+              </div>
+
+              <div class="card-main">
+                <div class="profile-row">
+                  <div class="avatar" aria-label="Profilbild Platzhalter">
+                    <!-- später Profilbild hier einfügen -->
+                    <span>F</span>
+                  </div>
+
+                  <div class="name-block">
+                    <h2>Finn Böttcher</h2>
+                    <p>Bewerber / Interessent</p>
+                  </div>
+                </div>
+
+                <ul class="info-list">
+                  <li>
+                    <div class="icon">✉</div>
+                    <div class="details">
+                      <span class="label">E-Mail</span>
+                      <span class="value">fiboe02@web.de</span>
+                    </div>
+                  </li>
+
+                  <li>
+                    <div class="icon">☎</div>
+                    <div class="details">
+                      <span class="label">Telefon</span>
+                      <span class="value">015225231232</span>
+                    </div>
+                  </li>
+
+                  <li>
+                    <div class="icon">⌂</div>
+                    <div class="details">
+                      <span class="label">Adresse</span>
+                      <span class="value">Itzehoer Chaussee 32, 24808 Jevenstedt</span>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="card-footer" id="dokumente">
+                <div class="document-box">
+                  <span>📄 Dokumente</span>
+                  <div class="doc-pill">später hochladen</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="kontakt">
+          <div class="section-header">
+            <h3>Warum ich?</h3>
+            <span>Persönlichkeit & Motivation</span>
+          </div>
+
+          <div class="feature-grid">
+            <article class="feature">
+              <div class="num">01</div>
+              <h4>Engagement</h4>
+              <p>
+                Ich bin motiviert, Verantwortung zu übernehmen und aktiv an
+                Projekten mitzuwirken.
+              </p>
+            </article>
+
+            <article class="feature">
+              <div class="num">02</div>
+              <h4>Analytisches Denken</h4>
+              <p>
+                Ich löse Aufgaben strukturiert, arbeite fokussiert und achte auf
+                Qualität und Details.
+              </p>
+            </article>
+
+            <article class="feature">
+              <div class="num">03</div>
+              <h4>Weiterentwicklung</h4>
+              <p>
+                Ich bin offen für neue Aufgaben, lerne schnell und bringe
+                Eigeninitiative in den Arbeitsalltag ein.
+              </p>
+            </article>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
